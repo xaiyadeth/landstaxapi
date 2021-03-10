@@ -16,7 +16,8 @@
         </a>
         <nav class="vertnav navbar navbar-light">
           <!-- nav bar -->
-          <div class="w-100 mb-4 d-flex">
+
+          <!--<div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.php">
               <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
                 <g>
@@ -26,17 +27,18 @@
                 </g>
               </svg>
             </a>
-          </div>
-          <ul class="navbar-nav flex-fill w-100 mb-2">
+          </div>-->
+          
+          <!-- <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
               <a href="./index.php" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
+               <i class="fe fe-home fe-16"></i>
                 <span class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
               </a>
             </li>              
-          </ul>
+          </ul> -->
           <p class="text-muted nav-heading mt-4 mb-1">
-            <span>ຈັດການຂໍ້ມູນ</span>
+            <span>ຂໍ້ມູນທີ່ດິນ</span>
           </p>
         
           <ul class="navbar-nav flex-fill w-100 mb-2">
