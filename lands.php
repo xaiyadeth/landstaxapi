@@ -1,3 +1,11 @@
+<?php session_start();?>
+<?php 
+ 
+if (!$_SESSION["username"]){  //check session
+ 
+	  Header("Location: login.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+ 
+}?>
 <?php
 
 include 'DBconfig.php';
