@@ -79,7 +79,7 @@ if(isset($_POST['search']))
           ON landtax_api_lands.address_district=district.id_district and landtax_api_lands.address_province=district.id_province
           INNER JOIN village
           ON landtax_api_lands.address_village=village.id_village and landtax_api_lands.address_district=village.id_district and landtax_api_lands.address_province=village.id_province
-          Where date_issued between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' "; 
+          Where created_at between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' "; 
           $result = pg_query($db,$query);
           }
           if(!empty($_POST['datestart'] and $_POST['datestop'] and $_POST['nameprovince'])){                 
@@ -92,7 +92,7 @@ if(isset($_POST['search']))
             ON landtax_api_lands.address_district=district.id_district and landtax_api_lands.address_province=district.id_province
             INNER JOIN village
             ON landtax_api_lands.address_village=village.id_village and landtax_api_lands.address_district=village.id_district and landtax_api_lands.address_province=village.id_province
-            Where date_issued between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince'].""; 
+            Where created_at between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince'].""; 
             $result = pg_query($db,$query);
             }
             if(!empty($_POST['datestart'] and $_POST['datestop'] and $_POST['nameprovince'] and $_POST['namedistrict'])){                 
@@ -105,7 +105,7 @@ if(isset($_POST['search']))
               ON landtax_api_lands.address_district=district.id_district and landtax_api_lands.address_province=district.id_province
               INNER JOIN village
               ON landtax_api_lands.address_village=village.id_village and landtax_api_lands.address_district=village.id_district and landtax_api_lands.address_province=village.id_province
-              Where date_issued between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince']." and address_district=".$_POST['namedistrict'].""; 
+              Where created_at between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince']." and address_district=".$_POST['namedistrict'].""; 
               $result = pg_query($db,$query);
               }
               if(!empty($_POST['datestart'] and $_POST['datestop'] and $_POST['nameprovince'] and $_POST['namedistrict'] and $_POST['namevillage'])){                 
@@ -118,7 +118,7 @@ if(isset($_POST['search']))
                 ON landtax_api_lands.address_district=district.id_district and landtax_api_lands.address_province=district.id_province
                 INNER JOIN village
                 ON landtax_api_lands.address_village=village.id_village and landtax_api_lands.address_district=village.id_district and landtax_api_lands.address_province=village.id_province
-                Where date_issued between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince']." and address_district=".$_POST['namedistrict']." and address_village=".$_POST['namevillage'].""; 
+                Where created_at between '".$_POST['datestart']." 00:00:00'  and '".$_POST['datestop']." 23:59:59' and address_province=".$_POST['nameprovince']." and address_district=".$_POST['namedistrict']." and address_village=".$_POST['namevillage'].""; 
                 $result = pg_query($db,$query);
                 }
    
@@ -326,17 +326,15 @@ if(isset($_POST['search']))
                             <tr>
                               <!-- <th>dtype</th> -->
                               <th>id</th>
-                              <th>created at</th>
-                              <th>updated at</th>
+                              <th>ວັນທີ່ ທີ່ຊຳລະ</th>
                               <th>ແຂວງ</th>
                               <th>ເມືອງ</th>
                               <th>ບ້ານ</th>
-                              <th>date issued</th>
-                              <th>land area number</th>
-                              <th>land map number</th>
-                              <th>ເຈົ້າຂອງດິນ</th>
-                              <th>total land area m2</th>
-                              <th>tax paid</th>
+                              <th>ເລກທີ່</th>
+                              <th>ເຈົ້າຂອງ</th>
+                              <th>ເນື້ອທີ່</th>
+                              <th>ຄ່າປັບໄໝ</th>
+                              <th>ຄ່າຊຳລະ</th>
                             </tr>
                           </thead>
                           <tbody >
@@ -346,15 +344,13 @@ if(isset($_POST['search']))
                                   
                                   <td><?php echo $row['id'];?></td>
                                   <td><?php echo $row['created_at'];?></td>
-                                  <td><?php echo $row['updated_at'];?></td>
                                   <td><?php echo $row['name_province_la'];?></td>
                                   <td><?php echo $row['name_district_la'];?></td>
                                   <td><?php echo $row['name_village_la'];?></td>
-                                  <td><?php echo $row['date_issued'];?></td>
                                   <td><?php echo $row['land_area_number'];?></td>
-                                  <td><?php echo $row['land_map_number'];?></td>
                                   <td><?php echo $row['fullname'];?></td>
                                   <td><?php echo $row['total_land_area_m2'];?></td>
+                                  <td><?php echo $row['penalty'];?></td>
                                   <td><?php echo $row['tax_paid'];?></td>
                               </tr>
                               <?php endwhile;?>
