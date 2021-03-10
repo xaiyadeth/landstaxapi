@@ -326,7 +326,7 @@ if(isset($_POST['search']))
                             <tr>
                               <!-- <th>dtype</th> -->
                               <th>id</th>
-                              <th>ວັນທີ່ ທີ່ຊຳລະ</th>
+                              <th>ວັນທີ່ ຊຳລະ</th>
                               <th>ແຂວງ</th>
                               <th>ເມືອງ</th>
                               <th>ບ້ານ</th>
