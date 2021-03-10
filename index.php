@@ -209,7 +209,7 @@ if(isset($_POST['search']))
     <div class="wrapper">
       <?php include 'topnavbar.php'; ?>
       <?php include 'sidebar.php'; ?>
-      <form action="lands.php" method="post">
+      <form action="index.php" method="post">
         <main role="main" class="main-content">
           <div class="container-fluid">
             <div class="row justify-content-center">
@@ -291,6 +291,7 @@ if(isset($_POST['search']))
                 </div> <!-- /. end-section -->            
 
 
+                
                 <div class="row">
                   <!-- Small table -->
                   <div class="col-md-12">
@@ -299,20 +300,43 @@ if(isset($_POST['search']))
                         <!-- table -->
                         
                         <p><?php 
-                        if(empty($nameprovinceshow)){
-                          echo '' ;
-                        }else{
-                          echo $nameprovinceshow ;
-                        }
-                        ?></p> 
-                                                 
-                          
+                        // if(empty($nameprovinceshow)){
+                        //   echo '' ;
+                        // }else{
+                        //   echo $nameprovinceshow ;
+                        // }
+                        ?></p>
+                        
+                        <h3><p><?php $data = pg_query($db,$query);                                                       
+                             $newrow55 = pg_fetch_assoc($data);
+                             echo ' ຄົ້ນຫາຕາມແຂວງ : '.$newrow55['name_province_la'].', ';
+                             echo ' ເມືອງ : '.$newrow55['name_district_la'].', ';
+                             echo ' ບ້ານ : '.$newrow55['name_village_la'].'';
+                             
+                            ?></p></h3>                                                    
                       </div>
                     </div>
                   </div> <!-- simple table -->
                 </div> <!-- end section -->
+                <br>
 
-
+                <div class="col-md-4 mb-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <span class="h4 mb-0">ລວມເງິນຄ່າຊໍາລະທັງໝົດ</span>
+                          <p class="text-muted mb-0">1,500,000</p>
+                        </div>
+                        <div class="col-auto">
+                          <span class="fe fe-32 fe-clipboard text-muted mb-0"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
 
 
                 <div class="row my-4">
@@ -361,6 +385,10 @@ if(isset($_POST['search']))
                   </div> <!-- simple table -->
                 </div> <!-- end section -->
 
+
+
+
+                
 
 
 
