@@ -1,3 +1,12 @@
+<?php session_start();?>
+<?php 
+ 
+if (!$_SESSION["username"]){  //check session
+ 
+	  Header("Location: login.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+ 
+}else{?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -749,3 +758,4 @@
     <script src="js/apps.js"></script>
   </body>
 </html>
+<?php }?>
