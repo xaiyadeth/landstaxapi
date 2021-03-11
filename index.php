@@ -13,7 +13,7 @@ include 'DBconfig.php';
 if(isset($_POST['search']))
 {
     if(!empty($_POST['nameprovince'])){ 
-      $nameprovinceshow = $_POST['nameprovince'];
+      // $nameprovinceshow = $_POST['nameprovince'];
     // ຈະເຮັດວຽກຕອນທີ່ມີການ ເລືອກແຂວງ
     $query = "SELECT province.name_province_la,district.name_district_la,village.name_village_la,landtax_api_lands.*
     FROM landtax_api_lands
@@ -25,9 +25,9 @@ if(isset($_POST['search']))
     ON landtax_api_lands.address_village=village.id_village and landtax_api_lands.address_district=village.id_district and landtax_api_lands.address_province=village.id_province
     Where address_province=".$_POST['nameprovince'].""; 
     $result = pg_query($db,$query);
-    
-    
-    }
+ 
+      }
+
     if(!empty($_POST['namedistrict'])){
         
       // ຈະເຮັດວຽກຕອນທີ່ມີການ ເລືອກເມືອງ
@@ -279,12 +279,16 @@ if(isset($_POST['search']))
                               </div>
                             </div>
 
-
-                          </div>
+                          
+                          <div class="form-group col-md-4">
+                          <br/>
                           <!-- <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br> -->
                           <button type="submit" name="search" class="btn btn-primary fe fe-search fe-16">  ຄົ້ນຫາ</button>                                
                           <!-- <button type="button" class="btn btn-primary fe fe-search fe-16">  ຄົ້ນຫາ</button> -->
-                        </form>
+                          </div>
+
+                          </div>
+                      </form>
                       </div> <!-- /. card-body -->
                     </div> <!-- /. card -->
                   </div> <!-- /. col -->
@@ -294,39 +298,50 @@ if(isset($_POST['search']))
                 
                 <div class="row">
                   <!-- Small table -->
+
                   <div class="col-md-12">
                     <div class="card shadow">
                       <div class="card-body">
                         <!-- table -->
-                        
-                        <p><?php 
-                        // if(empty($nameprovinceshow)){
-                        //   echo '' ;
-                        // }else{
-                        //   echo $nameprovinceshow ;
-                        // }
-                        ?></p>
-                        
-                        <h3><p><?php $data = pg_query($db,$query);                                                       
+                       
+                        <h4><p><?php $data = pg_query($db,$query);                                                       
                              $newrow55 = pg_fetch_assoc($data);
                              echo ' ຄົ້ນຫາຕາມແຂວງ : '.$newrow55['name_province_la'].', ';
                              echo ' ເມືອງ : '.$newrow55['name_district_la'].', ';
                              echo ' ບ້ານ : '.$newrow55['name_village_la'].'';
                              
-                            ?></p></h3>                                                    
+                            ?></p></h4>                                                    
                       </div>
                     </div>
                   </div> <!-- simple table -->
                 </div> <!-- end section -->
                 <br>
 
-                <div class="col-md-4 mb-4">
+                <div class="row my-4">
+                <div class="form-group col-md-4">
                   <div class="card shadow">
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                          <span class="h4 mb-0">ລວມເງິນຄ່າຊໍາລະທັງໝົດ</span>
-                          <p class="text-muted mb-0">1,500,000</p>
+                        <span class="h4 mb-0">ຄ່າຊຳລະ</span>
+                          <p class="text-muted mb-0">15,000</p>
+                        </div>
+                        <div class="col-auto">
+                          <span class="fe fe-32 fe-clipboard text-muted mb-0"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>      
+
+
+                <div class="form-group col-md-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                        <span class="h4 mb-0">ຄ່າປັບໄໝ</span>
+                          <p class="text-muted mb-0">240</p>
                         </div>
                         <div class="col-auto">
                           <span class="fe fe-32 fe-clipboard text-muted mb-0"></span>
@@ -336,7 +351,23 @@ if(isset($_POST['search']))
                   </div>
                 </div>
                 
-                
+                       
+                <div class="form-group col-md-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <span class="h4 mb-0">ລາຍການ</span>
+                          <p class="text-muted mb-0">3</p>
+                        </div>
+                        <div class="col-auto">
+                          <span class="fe fe-32 fe-clipboard text-muted mb-0"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
 
 
                 <div class="row my-4">
