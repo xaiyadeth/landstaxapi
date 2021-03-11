@@ -220,6 +220,25 @@ if (isset($_POST['search'])) {
               <h2 class="mb-2 page-title">ຂໍ້ມູນການຊໍາລະທີ່ດິນ</h2>
 
              
+<<<<<<< HEAD
+=======
+        });
+    </script>
+
+
+  </head>
+  <body class="vertical  dark  ">
+    <div class="wrapper">
+      <?php include 'topnavbar.php'; ?>
+      <?php include 'sidebar.php'; ?>
+      <form action="lands.php" method="post">
+        <main role="main" class="main-content">
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <h2 class="mb-2 page-title">ຂໍ້ມູນການຊໍາລະທີ່ດິນ</h2>
+                
+>>>>>>> parent of c11195a (Anon 20210310)
                 <div class="row">
                   <div class="col-md-12">
                     <div class="card shadow mb-2">
@@ -293,6 +312,7 @@ if (isset($_POST['search'])) {
                             <!-- <button type="button" class="btn btn-primary fe fe-search fe-16">  ຄົ້ນຫາ</button> -->
                           </div>
 
+<<<<<<< HEAD
                       </div>
     </form>
   </div> <!-- /. card-body -->
@@ -476,5 +496,126 @@ if (isset($_POST['search'])) {
 
 
 </body>
+=======
+
+                <div class="row">
+                  <!-- Small table -->
+                  <div class="col-md-12">
+                    <div class="card shadow">
+                      <div class="card-body">
+                        <!-- table -->
+                        
+                        <p><?php 
+                        if(empty($nameprovinceshow)){
+                          echo '' ;
+                        }else{
+                          echo $nameprovinceshow ;
+                        }
+                        ?></p> 
+                                                 
+                          
+                      </div>
+                    </div>
+                  </div> <!-- simple table -->
+                </div> <!-- end section -->
+
+
+
+
+                <div class="row my-4">
+                  <!-- Small table -->
+                  <div class="col-md-12">
+                    <div class="card shadow">
+                      <div class="card-body">
+                        <!-- table -->
+                        <table  class="table datatables" id="dataTable-1">
+                          <thead>
+                            <tr>
+                              <!-- <th>dtype</th> -->
+                              <th>id</th>
+                              <th>ວັນທີ່ ຊຳລະ</th>
+                              <th>ແຂວງ</th>
+                              <th>ເມືອງ</th>
+                              <th>ບ້ານ</th>
+                              <th>ເລກທີ່</th>
+                              <th>ເຈົ້າຂອງ</th>
+                              <th>ເນື້ອທີ່</th>
+                              <th>ຄ່າປັບໄໝ</th>
+                              <th>ຄ່າຊຳລະ</th>
+                            </tr>
+                          </thead>
+                          <tbody >
+                              <!-- populate table from mysql database -->
+                              <?php while($row = pg_fetch_assoc($result)):?>
+                              <tr>
+                                  
+                                  <td><?php echo $row['id'];?></td>
+                                  <td><?php echo $row['created_at'];?></td>
+                                  <td><?php echo $row['name_province_la'];?></td>
+                                  <td><?php echo $row['name_district_la'];?></td>
+                                  <td><?php echo $row['name_village_la'];?></td>
+                                  <td><?php echo $row['land_area_number'];?></td>
+                                  <td><?php echo $row['fullname'];?></td>
+                                  <td><?php echo $row['total_land_area_m2'];?></td>
+                                  <td><?php echo $row['penalty'];?></td>
+                                  <td><?php echo $row['tax_paid'];?></td>
+                              </tr>
+                              <?php endwhile;?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div> <!-- simple table -->
+                </div> <!-- end section -->
+
+
+
+
+              </div> <!-- .col-12 -->
+            </div> <!-- .row -->
+          </div> <!-- .container-fluid -->
+        </main> <!-- main -->
+      </form>
+    </div> <!-- .wrapper -->
+    
+    <script src="js/popper.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/simplebar.min.js"></script>
+    <script src='js/jquery.stickOnScroll.js'></script>
+    <script src="js/tinycolor-min.js"></script>
+    <script src="js/config.js"></script>
+    <script src='js/jquery.dataTables.min.js'></script>
+    <script src='js/dataTables.bootstrap4.min.js'></script>
+
+    <!-- ໃຊ້ໄວ້ສຳຫຼັບ datetimepicker -->
+    <script src='js/select2.min.js'></script>
+    <script src='js/daterangepicker.js'></script>
+    <!-- --------- -->
+   
+    <!-- ໃຊ້ໄວ້ສຳຫຼັບ datetimepicker -->
+    
+    <script src='https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'></script>
+    <script src='https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js'></script>
+    <!-- --------- -->
+    
+    
+
+    <script>
+      $('#dataTable-1').DataTable({
+        autoWidth: false,
+        "lengthMenu": [
+          [5, 16, 32, 64, -1],
+          [5, 16, 32, 64, "All"]
+        ]
+      });
+
+      
+    </script>
+
+    <script src="js/apps.js"></script>
+    
+>>>>>>> parent of c11195a (Anon 20210310)
 
 </html>
